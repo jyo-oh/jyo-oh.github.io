@@ -65,7 +65,7 @@ body {
 }
 
 .vertical-video {
-    transform: rotate(-90deg);
+    transform: rotate(0deg);
     margin: 0 10px;
 }
 
