@@ -58,6 +58,17 @@ body {
     right: 20px;
 }
 
+#video-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.vertical-video {
+    transform: rotate(90deg);
+    margin: 0 10px;
+}
+
 .message {
     margin-bottom: 10px;
     padding: 8px;
