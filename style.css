@@ -35,8 +35,6 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #444444;
-    color: #ffffff;
 }
 
 #send-button, #toggle-palette-button {
@@ -100,4 +98,30 @@ body {
 .green-black-palette #toggle-palette-button {
     background-color: green;
     color: black;
+}
+
+.rainbow-white-palette {
+    background-color: white;
+    color: black;
+}
+
+.rainbow-white-palette #chat-container {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    border-color: white;
+}
+
+.rainbow-white-palette #user-input {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.rainbow-white-palette #send-button {
+    background-color: black;
+    color: white;
+}
+
+.rainbow-white-palette #toggle-palette-button {
+    background-color: black;
+    color: white;
 }

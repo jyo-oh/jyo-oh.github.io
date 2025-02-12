@@ -10,7 +10,15 @@ userInput.addEventListener('keypress', function(e) {
 });
 
 document.getElementById('toggle-palette-button').addEventListener('click', () => {
-    document.body.classList.toggle('green-black-palette');
+    if (document.body.classList.contains('green-black-palette')) {
+        document.body.classList.remove('green-black-palette');
+        document.body.classList.add('rainbow-white-palette');
+    } else if (document.body.classList.contains('rainbow-white-palette')) {
+        document.body.classList.remove('rainbow-white-palette');
+        document.body.classList.add('green-black-palette');
+    } else {
+        document.body.classList.add('green-black-palette');
+    }
 });
 
 function sendMessage() {
