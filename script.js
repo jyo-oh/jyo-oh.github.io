@@ -27,7 +27,7 @@ function addMessage(sender, message) {
 }
 
 async function fetchBotResponse(message) {
-    const response = await fetch('https://f251fd6b.api-hider.pages.dev/', {
+    const response = await fetch('https://odd-forest-5171.joshuaoh0902.workers.dev/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
