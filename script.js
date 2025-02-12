@@ -9,6 +9,10 @@ userInput.addEventListener('keypress', function(e) {
     }
 });
 
+document.getElementById('toggle-palette-button').addEventListener('click', () => {
+    document.body.classList.toggle('green-black-palette');
+});
+
 function sendMessage() {
     const message = userInput.value.trim();
     if (message) {
