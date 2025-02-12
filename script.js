@@ -27,7 +27,7 @@ function addMessage(sender, message) {
 }
 
 async function fetchBotResponse(message) {
-    const response = await fetch('https://fd38de4d.api-hider.pages.dev/', {
+    const response = await fetch('https://f251fd6b.api-hider.pages.dev/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
