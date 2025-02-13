@@ -63,7 +63,7 @@ body {
 }
 
 .vertical-video {
-    transform: rotate(0deg);
+    transform: rotate(0deg); /* do not change */
     margin: 0 10px;
 }
 
@@ -74,6 +74,11 @@ body {
     color: #00FF00; /* Bright green text for high contrast */
 }
 
+.timestamp {
+    font-size: 0.8em;
+    color: #000000; /* Lighter color for timestamps */
+}
+
 .user-message {
     background-color: #4CAF50;
     align-self: flex-end;
@@ -82,6 +87,27 @@ body {
 .bot-message {
     background-color: #555555;
     align-self: flex-start;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 255, 0, 0.3);
+    border-top: 4px solid #00FF00;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .green-black-palette {

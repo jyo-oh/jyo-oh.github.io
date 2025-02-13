@@ -33,12 +33,25 @@ function sendMessage() {
 function addMessage(sender, message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', `${sender}-message`);
+    
+    const timestamp = new Date().toLocaleTimeString();
+    const timestampElement = document.createElement('span');
+    timestampElement.classList.add('timestamp');
+    timestampElement.textContent = ` [${timestamp}]`;
+
     messageElement.textContent = message;
+    messageElement.appendChild(timestampElement);
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 async function fetchBotResponse(message) {
+    const loadingElement = document.createElement('div');
+    loadingElement.classList.add('loading');
+    loadingElement.innerHTML = '<div class="spinner"></div>';
+    chatMessages.appendChild(loadingElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
     const response = await fetch('https://odd-forest-5171.joshuaoh0902.workers.dev/', {
         method: 'POST',
         headers: {
@@ -55,7 +68,9 @@ async function fetchBotResponse(message) {
         const { done, value } = await reader.read();
         if (done) break;
         botResponse += decoder.decode(value);
-        addMessage('bot', botResponse);
     }
+
+    chatMessages.removeChild(loadingElement);
+    addMessage('bot', botResponse);
 }
 
