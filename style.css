@@ -1,7 +1,5 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000; /* Black background for high contrast */
-    color: #00FF00; /* Bright green text for high contrast */
     margin: 0;
     padding: 0;
 }
@@ -10,10 +8,8 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #00FF00; /* Bright green border for high contrast */
     border-radius: 5px;
-    background-color: #1a1a1a; /* Darker gray background for higher contrast */
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Bright green shadow for high contrast */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
 #chat-messages {
@@ -21,9 +17,7 @@ body {
     overflow-y: auto;
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #000000bb; /* Even darker gray background for higher contrast */
     border-radius: 4px;
-    color: #00FF00; /* Bright green text for high contrast */
 }
 
 #input-container {
@@ -34,10 +28,7 @@ body {
 #user-input {
     flex: 1;
     padding: 10px;
-    border: 1px solid #00FF00; /* Bright green border for high contrast */
     border-radius: 5px;
-    background-color: #abff2d; /* Darker gray background for higher contrast */
-    color: #00FF00; /* Bright green text for high contrast */
 }
 
 #send-button, #toggle-palette-button {
@@ -46,8 +37,6 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #00FF00; /* Bright green background for high contrast */
-    color: #000000; /* Black text for high contrast */
 }
 
 #toggle-palette-button {
@@ -59,11 +48,16 @@ body {
 #video-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
 .vertical-video {
-    transform: rotate(0deg); /* do not change */
+    transform: rotate(0deg);
+    margin: 0 10px;
+}
+
+.landscape-video {
     margin: 0 10px;
 }
 
@@ -71,19 +65,18 @@ body {
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 4px;
-    background-color: #111111; /* Even darker gray background for higher contrast */
-    color: #00FF00; /* Bright green text for high contrast */
 }
 
 .timestamp {
     font-size: 0.8em;
-    color: #888888; /* Lighter color for timestamps */
+    color: #555555; /* Darker color for timestamps */
 }
 
+.user-message {
+    align-self: flex-end;
+}
 
 .bot-message {
-    background-color: #555555; /* Dark gray background for bot messages */
-    color: #FFFFFF; /* White text for high contrast */
     align-self: flex-start;
 }
 
@@ -115,12 +108,17 @@ body {
 
 .green-black-palette #chat-container {
     background-color: #1a1a1a;
-    border-color: green;
+    border: 1px solid green;
+}
+
+.green-black-palette #chat-messages {
+    background-color: #111111;
+    color: green;
 }
 
 .green-black-palette #user-input {
-    background-color: #333333; /* Darker gray background for higher contrast */
-    border-color: green;
+    background-color: #333333;
+    border: 1px solid green;
     color: green;
 }
 
@@ -139,8 +137,14 @@ body {
     color: green;
 }
 
-.green-black-palette .timestamp {
-    color: #888888;
+.green-black-palette .user-message {
+    background-color: #4CAF50;
+    color: black;
+}
+
+.green-black-palette .bot-message {
+    background-color: #555555;
+    color: white;
 }
 
 .green-black-palette .spinner {
@@ -155,12 +159,17 @@ body {
 
 .rainbow-white-palette #chat-container {
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-    border-color: white;
+    border: 1px solid white;
+}
+
+.rainbow-white-palette #chat-messages {
+    background-color: white;
+    color: black;
 }
 
 .rainbow-white-palette #user-input {
     background-color: white;
-    border-color: black;
+    border: 1px solid black;
     color: black;
 }
 
@@ -179,8 +188,14 @@ body {
     color: black;
 }
 
-.rainbow-white-palette .timestamp {
-    color: #555555;
+.rainbow-white-palette .user-message {
+    background: linear-gradient(to left, red, orange, yellow, green, blue, indigo, violet);
+    color: black;
+}
+
+.rainbow-white-palette .bot-message {
+    background-color: #555555;
+    color: white;
 }
 
 .rainbow-white-palette .spinner {
