@@ -25,6 +25,12 @@ body {
     margin-top: 10px;
 }
 
+#ad-container {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
 #user-input {
     flex: 1;
     padding: 10px;
