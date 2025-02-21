@@ -1,6 +1,14 @@
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
+const togglePaletteButton = document.getElementById('toggle-palette-button');
+const toggleVideosButton = document.getElementById('toggle-videos-button');
+const videoContainer = document.getElementById('video-container');
+const professionalButton = document.getElementById('professional-button');
+const coolButton = document.getElementById('cool-button');
+const goofyButton = document.getElementById('goofy-button');
+
+let currentPrompt = "You are a cool assistant. Use casual language and be friendly.";
 
 sendButton.addEventListener('click', sendMessage);
 userInput.addEventListener('keypress', function(e) {
@@ -9,7 +17,7 @@ userInput.addEventListener('keypress', function(e) {
     }
 });
 
-document.getElementById('toggle-palette-button').addEventListener('click', () => {
+togglePaletteButton.addEventListener('click', () => {
     if (document.body.classList.contains('green-black-palette')) {
         document.body.classList.remove('green-black-palette');
         document.body.classList.add('rainbow-white-palette');
@@ -20,6 +28,40 @@ document.getElementById('toggle-palette-button').addEventListener('click', () =>
         document.body.classList.add('green-black-palette');
     }
 });
+
+toggleVideosButton.addEventListener('click', () => {
+    if (videoContainer.style.display === 'none') {
+        videoContainer.style.display = 'flex';
+    } else {
+        videoContainer.style.display = 'none';
+    }
+});
+
+professionalButton.addEventListener('click', () => {
+    currentPrompt = "You are a professional assistant. Provide concise and accurate information.";
+    setActiveButton(professionalButton);
+});
+
+coolButton.addEventListener('click', () => {
+    currentPrompt = "You are a cool assistant. Use casual language and be friendly.";
+    setActiveButton(coolButton);
+});
+
+goofyButton.addEventListener('click', () => {
+    currentPrompt = "You are a goofy assistant. Be humorous and entertaining.";
+    setActiveButton(goofyButton);
+});
+
+function setActiveButton(activeButton) {
+    const buttons = [professionalButton, coolButton, goofyButton];
+    buttons.forEach(button => {
+        if (button === activeButton) {
+            button.classList.add('active-prompt');
+        } else {
+            button.classList.remove('active-prompt');
+        }
+    });
+}
 
 function sendMessage() {
     const message = userInput.value.trim();
@@ -57,7 +99,7 @@ async function fetchBotResponse(message) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ prompt: currentPrompt, message: message }),
     });
 
     const reader = response.body.getReader();
@@ -70,7 +112,25 @@ async function fetchBotResponse(message) {
         botResponse += decoder.decode(value);
     }
 
+    // Format the response
+    const formattedResponse = formatBotResponse(botResponse);
+
     chatMessages.removeChild(loadingElement);
-    addMessage('bot', botResponse);
+    addMessage('bot', formattedResponse);
 }
+
+function formatBotResponse(text) {
+    // Add non-breaking space before punctuation marks
+    text = text.replace(/\s([.,?!])/g, '&nbsp;$1');
+    return text;
+}
+
+// Set the default active button to "Cool"
+setActiveButton(coolButton);
+
+// Add this at the end of your script.js file
+document.addEventListener('DOMContentLoaded', function() {
+    // Set Cool button as active by default
+    coolButton.classList.add('active-prompt');
+});
 

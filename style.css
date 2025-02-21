@@ -12,6 +12,26 @@ body {
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#prompt-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#prompt-buttons .active-prompt {
+    background-color: #FFD700; /* Gold color for active prompt */
+    color: black;
+}
+
 #chat-messages {
     height: 400px;
     overflow-y: auto;
@@ -25,19 +45,13 @@ body {
     margin-top: 10px;
 }
 
-#ad-container {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-}
-
 #user-input {
     flex: 1;
     padding: 10px;
     border-radius: 5px;
 }
 
-#send-button, #toggle-palette-button {
+#send-button, #toggle-palette-button, #toggle-videos-button {
     padding: 10px 20px;
     margin-left: 10px;
     border: none;
@@ -49,6 +63,16 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
+}
+
+#toggle-videos-button {
+    margin-top: 10px;
+}
+
+#center-toggle {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 #video-container {
@@ -84,6 +108,82 @@ body {
 
 .bot-message {
     align-self: flex-start;
+    background-color: #f7f7f8;      /* light, neutral background */
+    border: 1px solid #dadce0;      /* soft border */
+    border-radius: 8px;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #202124;
+    padding: 12px 16px;
+    white-space: pre-wrap;         /* preserve line breaks */
+    word-break: break-word;        /* Break long words */
+    word-wrap: normal;             /* prevent breaking words */
+}
+
+/* Code block styling within bot messages */
+.bot-message pre {
+    background-color: #eeeeee;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 12px;
+    overflow-x: auto;
+    margin: 12px 0;
+}
+
+/* Inline code styling */
+.bot-message code {
+    background-color: rgba(27,31,35,.05);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 90%;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+/* List styling */
+.bot-message ul,
+.bot-message ol {
+    padding-left: 24px;
+    margin: 8px 0;
+}
+.bot-message li {
+    margin: 4px 0;
+}
+
+/* Blockquote styling */
+.bot-message blockquote {
+    border-left: 4px solid #dadce0;
+    color: #5f6368;
+    padding-left: 16px;
+    margin: 8px 0;
+}
+
+/* Optional: link styling */
+.bot-message a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+.bot-message a:hover {
+    text-decoration: underline;
+}
+
+/* Adjust colors for dark theme */
+.green-black-palette .bot-message pre {
+    background-color: #1a1a1a;
+    border-color: #333;
+}
+
+.green-black-palette .bot-message code {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.green-black-palette .bot-message blockquote {
+    border-left-color: #333;
+    color: #888;
+}
+
+.green-black-palette .bot-message a {
+    color: #00ff00;
 }
 
 .loading {
@@ -128,12 +228,7 @@ body {
     color: green;
 }
 
-.green-black-palette #send-button {
-    background-color: green;
-    color: black;
-}
-
-.green-black-palette #toggle-palette-button {
+.green-black-palette #send-button, .green-black-palette #toggle-palette-button, .green-black-palette #toggle-videos-button, .green-black-palette #prompt-buttons button {
     background-color: green;
     color: black;
 }
@@ -158,6 +253,12 @@ body {
     border-top: 4px solid green;
 }
 
+.green-black-palette #prompt-buttons .active-prompt {
+    background-color: #00FF00 !important;
+    color: black !important;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
 .rainbow-white-palette {
     background-color: white;
     color: black;
@@ -179,12 +280,7 @@ body {
     color: black;
 }
 
-.rainbow-white-palette #send-button {
-    background-color: black;
-    color: white;
-}
-
-.rainbow-white-palette #toggle-palette-button {
+.rainbow-white-palette #send-button, .rainbow-white-palette #toggle-palette-button, .rainbow-white-palette #toggle-videos-button, .rainbow-white-palette #prompt-buttons button {
     background-color: black;
     color: white;
 }
@@ -207,4 +303,14 @@ body {
 .rainbow-white-palette .spinner {
     border: 4px solid rgba(0, 0, 0, 0.3);
     border-top: 4px solid black;
+}
+
+.rainbow-white-palette #prompt-buttons .active-prompt {
+    background: linear-gradient(to right, #FFD700, #FFA500) !important;
+    color: black !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+#prompt-buttons button:active {
+    transform: scale(0.95);
 }
