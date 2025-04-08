@@ -1,56 +1,77 @@
+// Initialize DOM elements
 const chatMessages = document.getElementById('chat-messages');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
-const togglePaletteButton = document.getElementById('toggle-palette-button');
-const toggleVideosButton = document.getElementById('toggle-videos-button');
-const videoContainer = document.getElementById('video-container');
 const professionalButton = document.getElementById('professional-button');
 const coolButton = document.getElementById('cool-button');
 const goofyButton = document.getElementById('goofy-button');
+const toggleVideosButton = document.getElementById('toggle-videos-button');
+const videoContainer = document.getElementById('video-container');
 
 let currentPrompt = "You are a cool assistant. Use casual language and be friendly.";
 
-sendButton.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
+// Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize tab navigation
+    initializeTabNavigation();
+
+    // Initialize buttons
+    sendButton.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // Personality buttons
+    professionalButton.addEventListener('click', () => {
+        currentPrompt = "You are a professional assistant. Provide concise and accurate information.";
+        setActiveButton(professionalButton);
+    });
+
+    coolButton.addEventListener('click', () => {
+        currentPrompt = "You are a cool assistant. Use casual language and be friendly.";
+        setActiveButton(coolButton);
+    });
+
+    goofyButton.addEventListener('click', () => {
+        currentPrompt = "You are a goofy assistant. Be humorous and entertaining.";
+        setActiveButton(goofyButton);
+    });
+
+    // Video toggle
+    toggleVideosButton.addEventListener('click', toggleVideos);
+
+    // Set initial states
+    setActiveButton(coolButton);
+    videoContainer.style.display = 'none';
 });
 
-togglePaletteButton.addEventListener('click', () => {
-    if (document.body.classList.contains('green-black-palette')) {
-        document.body.classList.remove('green-black-palette');
-        document.body.classList.add('rainbow-white-palette');
-    } else if (document.body.classList.contains('rainbow-white-palette')) {
-        document.body.classList.remove('rainbow-white-palette');
-        document.body.classList.add('green-black-palette');
-    } else {
-        document.body.classList.add('green-black-palette');
-    }
-});
+function initializeTabNavigation() {
+    const tabLinks = document.querySelectorAll('#tab-navigation a');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-toggleVideosButton.addEventListener('click', () => {
+    tabLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active class from all tabs and contents
+            tabLinks.forEach(l => l.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            link.classList.add('active');
+            const contentId = link.getAttribute('href').substring(1);
+            document.getElementById(contentId).classList.add('active');
+        });
+    });
+}
+
+function toggleVideos() {
     if (videoContainer.style.display === 'none') {
         videoContainer.style.display = 'flex';
     } else {
         videoContainer.style.display = 'none';
     }
-});
-
-professionalButton.addEventListener('click', () => {
-    currentPrompt = "You are a professional assistant. Provide concise and accurate information.";
-    setActiveButton(professionalButton);
-});
-
-coolButton.addEventListener('click', () => {
-    currentPrompt = "You are a cool assistant. Use casual language and be friendly.";
-    setActiveButton(coolButton);
-});
-
-goofyButton.addEventListener('click', () => {
-    currentPrompt = "You are a goofy assistant. Be humorous and entertaining.";
-    setActiveButton(goofyButton);
-});
+}
 
 function setActiveButton(activeButton) {
     const buttons = [professionalButton, coolButton, goofyButton];
@@ -124,13 +145,4 @@ function formatBotResponse(text) {
     text = text.replace(/\s([.,?!])/g, '&nbsp;$1');
     return text;
 }
-
-// Set the default active button to "Cool"
-setActiveButton(coolButton);
-
-// Add this at the end of your script.js file
-document.addEventListener('DOMContentLoaded', function() {
-    // Set Cool button as active by default
-    coolButton.classList.add('active-prompt');
-});
 

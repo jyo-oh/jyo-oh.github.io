@@ -3,34 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Non-Woke Bot</title>
+    <title>Joshua Oh - Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="green-black-palette">
-    <div id="chat-container">
-        <div id="header">
-            <h1>Non-Woke Bot</h1>
-            <div id="prompt-buttons">
-                <button id="professional-button">Professional</button>
-                <button id="cool-button">Cool</button>
-                <button id="goofy-button">Goofy</button>
+    <nav id="tab-navigation">
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#chatbot">AI Assistant</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="tab-content active">
+        <div class="hero-section">
+            <div class="profile-container">
+                <img src="logo.png" alt="Joshua Oh" class="profile-image">
+                <h1>Joshua Oh</h1>
+                <p class="tagline">Computer Systems Engineering Student & Robotics Enthusiast</p>
             </div>
         </div>
-        <div id="chat-messages"></div>
-        <div id="input-container">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-button">Send</button>
-        </div>
-        <div id="center-toggle">
-            <button id="toggle-videos-button">Toggle Videos</button>
-        </div>
-        <div id="video-container">
-            <iframe class="vertical-video" width="315" height="560" src="https://www.youtube.com/embed/zZ7AimPACzc?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <iframe class="landscape-video" width="560" height="315" src="https://www.youtube.com/embed/u7kdVe8q5zs?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            <iframe class="vertical-video" width="315" height="560" src="https://www.youtube.com/embed/Oc2CI_xtEhs?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="content-section">
+            <h2>About Me</h2>
+            <p>I'm a Computer Systems Engineering student at the University of Georgia, passionate about leveraging programming and robotics to design innovative solutions. I am actively seeking a 2025 summer internship in computer engineering.</p>
+            
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>University of Georgia, College of Engineering</h3>
+                    <p>Bachelor of Science, Computer Systems Engineering</p>
+                    <p>Expected May 2028</p>
+                </div>
+                <div class="education-item">
+                    <h3>Peachtree Ridge High School</h3>
+                    <p>High School Diploma, Honor Grad</p>
+                    <p>May 2024</p>
+                    <p>GPA: 4.259</p>
+                </div>
+            </div>
+
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>HTML/CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>GitHub</li>
+                        <li>Replit</li>
+                        <li>Eclipse IDE</li>
+                        <li>Microsoft Office Suite</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>CAD Software</h3>
+                    <ul>
+                        <li>SketchUp</li>
+                        <li>AutoCAD Inventor</li>
+                        <li>OnShape</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Operating Systems</h3>
+                    <ul>
+                        <li>Windows</li>
+                        <li>Linux</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3>UGA DevDogs, Member</h3>
+                    <p class="date">September 2024 - Present</p>
+                    <ul>
+                        <li>Joined the algorithm subteam and researched possible efficiency frameworks.</li>
+                        <li>Developed a hybrid algorithm to sort classes based on user preferences.</li>
+                        <li>Collaborated to improve the current system for increased ease of use.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>UGA Robotics Club, Member</h3>
+                    <p class="date">September 2024 - Present</p>
+                    <ul>
+                        <li>Researched and brainstormed ideas for Beetleweight robot design and electrical components.</li>
+                        <li>Developed a CAD prototype in OnShape for robot geometry and outer casing.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Code Ridge (CS Club), Member</h3>
+                    <p class="date">August 2024 - May 2024</p>
+                    <ul>
+                        <li>Developed a mini arcade machine running on a Raspberry Pi using RetroPie.</li>
+                        <li>Implemented SketchUp to visualize the arcade cabinet and generate a cut list.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <button id="toggle-palette-button">Toggle Color Palette</button>
+
+    <div id="chatbot" class="tab-content">
+        <div id="chat-container">
+            <div id="header">
+                <h1>Non-Woke Bot</h1>
+                <div id="prompt-buttons">
+                    <button id="professional-button">Professional</button>
+                    <button id="cool-button">Cool</button>
+                    <button id="goofy-button">Goofy</button>
+                </div>
+            </div>
+            <div id="chat-messages"></div>
+            <div id="input-container">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-button">Send</button>
+            </div>
+            <div id="center-toggle">
+                <button id="toggle-videos-button">Toggle Videos</button>
+            </div>
+            <div id="video-container" style="display: none;">
+                <iframe class="vertical-video" width="315" height="560" src="https://www.youtube.com/embed/zZ7AimPACzc?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe class="landscape-video" width="560" height="315" src="https://www.youtube.com/embed/u7kdVe8q5zs?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <iframe class="vertical-video" width="315" height="560" src="https://www.youtube.com/embed/Oc2CI_xtEhs?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="tab-content">
+        <div class="contact-section">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:jyo33538@uga.edu">jyo33538@uga.edu</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+14702659705">(470) 265-9705</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>GitHub</h3>
+                    <p><a href="https://github.com/joshuaok" target="_blank">github.com/joshuaok</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/joshua-oh-2b7352250/" target="_blank">linkedin.com/in/joshua-oh-2b7352250</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
